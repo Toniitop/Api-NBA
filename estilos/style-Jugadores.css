@@ -1,0 +1,30 @@
+.centrado {
+    text-align: center;
+    margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+/* CSS para estilos específicos del contenido */
+.info-container {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #336699; /* Color diferente al de la respuesta de la API */
+}
+
+/* CSS para estilos específicos del separador */
+.separador-container {
+    display: flex;
+    justify-content: center;
+}
+
+.separador {
+    height: 2px;
+    background-color: #161515; /* Color diferente al de la respuesta de la API */
+    margin-bottom: 20px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h5 {
+    font-size: large;
+}

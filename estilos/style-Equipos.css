@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+}
+
+#contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.equipo {
+    text-align: center;
+    margin: 10px;
+}
+
+#contenedor .equipo .nombre {
+    text-decoration: none;
+    color: #333; 
+}
+
+.escudo {
+    transition: ease-in-out 0.35s;
+}
+
+.escudo:hover {
+    transform: scale(1.5);
+}
+
+/* Añadido para el posicionamiento del footer */
+@media(min-height: 500px) {
+    body {
+        margin-bottom: 0; /* Ajusta según sea necesario */
+    }
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+		margin-top: 20px;
+    }
+}
