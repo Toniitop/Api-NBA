@@ -1,30 +1,59 @@
-.centrado {
-    text-align: center;
-    margin-top: 20px; /* Ajusta según sea necesario */
-}
-
-/* CSS para estilos específicos del contenido */
-.info-container {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #336699; /* Color diferente al de la respuesta de la API */
-}
-
-/* CSS para estilos específicos del separador */
-.separador-container {
+#contenedorTabla {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta según sea necesario para centrar verticalmente */
+    margin-top: 20%; /* Ajusta según la altura de tu header */
+    margin-bottom: 20%;
+    position: relative;
 }
 
-.separador {
-    height: 2px;
-    background-color: #161515; /* Color diferente al de la respuesta de la API */
-    margin-bottom: 20px;
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
+#tablaJugadores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0px;
 }
 
-h5 {
-    font-size: large;
+#tablaJugadores th, #tablaJugadores td {
+    padding: 13px;
+    text-align: center;
+}
+
+#tablaJugadores th {
+    background-color: #333;
+    color: white;
+}
+
+#tablaCabecera {
+    position: absolute;
+    top: -40%;
+    left: 10%;
+    z-index: 150;
+    background-color: #333; /* Ajusta el color de fondo según sea necesario */
+    color: white;
+    width: 80%; /* Igualar al ancho de #tablaJugadores */
+    margin: 0px auto; /* Centrar horizontalmente */
+}
+
+#tablaCabecera th.nombre {
+    width: 2%; /* Ajusta según sea necesario */
+}
+
+#tablaCabecera th.dorsal {
+    width: 1%; /* Ajusta según sea necesario */
+}
+
+#tablaCabecera th.temp {
+    width: 1%; /* Ajusta según sea necesario */
+}
+
+#tablaCabecera th.altura {
+    width: 1%; /* Ajusta según sea necesario */
+}
+
+#tablaCabecera th.peso {
+    width: 1%; /* Ajusta según sea necesario */
 }

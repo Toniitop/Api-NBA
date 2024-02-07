@@ -36,13 +36,19 @@
     </header>
 
     <main id="contenedor">
-        <div class="filtros">
-            <label for="selectEquipos">Equipos:</label>
-            <select id="selectEquipos"></select>
-
-            <label for="selectTemporadas">Temporadas:</label>
-            <select id="selectTemporadas"></select>
+        <div id="contenedorTabla">
+            <table id="tablaCabecera">
+                <tr>
+                    <th class="nombre">Nombre</th>
+                    <th class="dorsal">Dorsal</th>
+                    <th class="temp">Temporadas</th>
+                    <th class="altura">Altura</th>
+                    <th class="peso">Peso</th>
+                </tr>
+            </table>
+            <table id="tablaJugadores"></table>
         </div>
+        
     </main>
 
     <footer class="footer">

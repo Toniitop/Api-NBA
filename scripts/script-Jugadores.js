@@ -6,7 +6,6 @@ console.log('ID del equipo:', equipoId);
 
 if(equipoId  > 41 || equipoId === null){
     equipoId = 1;
-    //localStorage.setItem('equipoId', equipoId);
 }
 
 const cargarJugadores = async () => {
@@ -26,29 +25,24 @@ const cargarJugadores = async () => {
         if (respuesta.status === 200) {
             const datos = await respuesta.json();
             console.log(datos);
-            const contenedor = document.getElementById('contenedor');
+            const contenedor = document.getElementById('tablaJugadores');
 
             datos.response.forEach(elemento => {
-                const contenedorInfo = document.createElement('div');
-                contenedorInfo.classList.add('info-container');
-                
-                const nuevoH5 = document.createElement('h5');
-                nuevoH5.textContent = `Nombre: ${elemento.firstname}, ${elemento.lastname}`;
-                contenedorInfo.appendChild(nuevoH5);
+                const nuevaFila = contenedor.insertRow(-1);
+                const campos = ['Nombre', 'Dorsal', 'Temporadas', 'Altura', 'Peso'];
 
-                const edadParrafo = document.createElement('p');
-                edadParrafo.textContent = `Dorsal: ${elemento.leagues.standard.jersey}, Años Pro: ${elemento.nba.pro}`;
-                contenedorInfo.appendChild(edadParrafo);
-
-                const otrosDatosParrafo = document.createElement('p');
-                otrosDatosParrafo.textContent = `Estatura: ${elemento.height.meters}m, Peso: ${elemento.weight.kilograms}`;
-                contenedorInfo.appendChild(otrosDatosParrafo);
-                
-                contenedor.appendChild(contenedorInfo);
-                // Agregar un hr con estilos
-                const separador = document.createElement('hr');
-                separador.classList.add('separador');
-                contenedor.appendChild(separador);
+                campos.forEach(campo => {
+                    const celdaNombre = nuevaFila.insertCell();
+                    const celdaDorsal = nuevaFila.insertCell();
+                    const celdaTempo = nuevaFila.insertCell();
+                    const celdaAltura = nuevaFila.insertCell();
+                    const celdaPeso = nuevaFila.insertCell();
+                    celdaNombre.textContent = campo === 'Nombre' ? `${elemento.firstname}, ${elemento.lastname}` : elemento[campo.toUpperCase()];
+                    celdaDorsal.textContent = campo === 'Dorsal' ? `${elemento.leagues.standard.jersey}` : elemento[campo.toUpperCase()];
+                    celdaTempo.textContent = campo === 'Temporadas' ? `${elemento.nba.pro}` : elemento[campo.toUpperCase()];
+                    celdaAltura.textContent = campo === 'Altura' ? `${elemento.height.meters}m` : elemento[campo.toUpperCase()];
+                    celdaPeso.textContent = campo === 'Peso' ? `${elemento.weight.kilograms} kg` : elemento[campo.toUpperCase()];
+                });
             });
 
         } else {
