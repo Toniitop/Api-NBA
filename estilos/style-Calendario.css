@@ -1,0 +1,50 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#botonBuscar {
+    padding: 10px 20px; /* Ajusta el tamaño del botón según tus necesidades */
+    width: 20%; /* Ajusta el ancho del botón según tus necesidades */
+    background-color: #333; /* Cambia el color del fondo del botón */
+    color: #fff; /* Cambia el color del texto del botón */
+    border: none;
+    border-radius: 5px; /* Añade esquinas redondeadas */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Añade una transición de color */
+}
+
+#botonBuscar:hover {
+    background-color: #e91e63; /* Cambia el color del fondo al pasar el cursor sobre el botón */
+}
+
+/*tabla*/
+.estadisticas-table {
+    width: 80%; /* Ancho de la tabla, ajusta según sea necesario */
+    margin: 20px auto; /* Centrar la tabla con espacio superior e inferior */
+    border-collapse: collapse; /* Colapsar los bordes de la tabla */
+}
+
+.estadisticas-table th, .estadisticas-table td {
+    border: 1px solid none; /* Borde de las celdas */
+    padding: 8px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto al centro */
+}
+
+.estadisticas-table thead {
+    background-color: #333; /* Color de fondo del encabezado */
+    color: white;
+}
+
+/* Añadido para el posicionamiento del footer */
+@media(min-height: 500px) {
+    body {
+        margin-bottom: 0; /* Ajusta según sea necesario */
+    }
+    .footer {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+		margin-top: 20px;
+    }
+}

@@ -1,59 +1,18 @@
-#contenedorTabla {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta según sea necesario para centrar verticalmente */
-    margin-top: 20%; /* Ajusta según la altura de tu header */
-    margin-bottom: 20%;
-    position: relative;
+
+
+.estadisticas-table {
+    width: 80%; /* Ancho de la tabla, ajusta según sea necesario */
+    margin: 20px auto; /* Centrar la tabla con espacio superior e inferior */
+    border-collapse: collapse; /* Colapsar los bordes de la tabla */
 }
 
-#tablaJugadores {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-collapse: collapse;
-    width: 100%;
-    margin: 0px;
+.estadisticas-table th, .estadisticas-table td {
+    border: 1px solid #ddd; /* Borde de las celdas */
+    padding: 8px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto al centro */
 }
 
-#tablaJugadores th, #tablaJugadores td {
-    padding: 13px;
-    text-align: center;
-}
-
-#tablaJugadores th {
-    background-color: #333;
+.estadisticas-table thead {
+    background-color: #333; /* Color de fondo del encabezado */
     color: white;
-}
-
-#tablaCabecera {
-    position: absolute;
-    top: -40%;
-    left: 10%;
-    z-index: 150;
-    background-color: #333; /* Ajusta el color de fondo según sea necesario */
-    color: white;
-    width: 80%; /* Igualar al ancho de #tablaJugadores */
-    margin: 0px auto; /* Centrar horizontalmente */
-}
-
-#tablaCabecera th.nombre {
-    width: 2%; /* Ajusta según sea necesario */
-}
-
-#tablaCabecera th.dorsal {
-    width: 1%; /* Ajusta según sea necesario */
-}
-
-#tablaCabecera th.temp {
-    width: 1%; /* Ajusta según sea necesario */
-}
-
-#tablaCabecera th.altura {
-    width: 1%; /* Ajusta según sea necesario */
-}
-
-#tablaCabecera th.peso {
-    width: 1%; /* Ajusta según sea necesario */
 }

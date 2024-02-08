@@ -25,32 +25,35 @@ const cargarJugadores = async () => {
         if (respuesta.status === 200) {
             const datos = await respuesta.json();
             console.log(datos);
-            const contenedor = document.getElementById('tablaJugadores');
 
-            datos.response.forEach(elemento => {
-                const nuevaFila = contenedor.insertRow(-1);
-                const campos = ['Nombre', 'Dorsal', 'Temporadas', 'Altura', 'Peso'];
+            // Crear la tabla dinámicamente
+            const tabla = document.createElement('table');
+            tabla.classList.add('estadisticas-table'); // Puedes agregar clases según tu estilo CSS
 
-                campos.forEach(campo => {
-                    const celdaNombre = nuevaFila.insertCell();
-                    const celdaDorsal = nuevaFila.insertCell();
-                    const celdaTempo = nuevaFila.insertCell();
-                    const celdaAltura = nuevaFila.insertCell();
-                    const celdaPeso = nuevaFila.insertCell();
-                    celdaNombre.textContent = campo === 'Nombre' ? `${elemento.firstname}, ${elemento.lastname}` : elemento[campo.toUpperCase()];
-                    celdaDorsal.textContent = campo === 'Dorsal' ? `${elemento.leagues.standard.jersey}` : elemento[campo.toUpperCase()];
-                    celdaTempo.textContent = campo === 'Temporadas' ? `${elemento.nba.pro}` : elemento[campo.toUpperCase()];
-                    celdaAltura.textContent = campo === 'Altura' ? `${elemento.height.meters}m` : elemento[campo.toUpperCase()];
-                    celdaPeso.textContent = campo === 'Peso' ? `${elemento.weight.kilograms} kg` : elemento[campo.toUpperCase()];
-                });
+            // Encabezado de la tabla
+            const encabezado = document.createElement('thead');
+            const encabezadoFila = document.createElement('tr');
+            encabezadoFila.innerHTML = '<th>Nombre</th><th>Dorsal</th><th>Temporadas</th><th>Altura</th><th>Peso</th>'; 
+            encabezado.appendChild(encabezadoFila);
+            tabla.appendChild(encabezado);
+
+            datos.response.forEach((elemento) => {
+                // Cuerpo de la tabla
+                const cuerpoTabla = document.createElement('tbody');
+                const fila = document.createElement('tr');
+
+                fila.innerHTML = `<td>${elemento.firstname}, ${elemento.lastname}</td><td>${elemento.leagues.standard.jersey}</td><td>${elemento.nba.pro}</td><td>${elemento.height.meters} m</td><td>${elemento.weight.kilograms} kg</td>`; 
+                cuerpoTabla.appendChild(fila);
+                tabla.appendChild(cuerpoTabla);
+
+                // Agregar la tabla al nuevo contenedor
+                const resultadosContenedor = document.getElementById('resultadosContenedor');
+                resultadosContenedor.innerHTML = ''; // Limpia el contenido actual antes de agregar la tabla
+                resultadosContenedor.appendChild(tabla);
             });
-
         } else {
             console.error('Error en la petición HTTP a la API');
         }
-
-        
-
     } catch (error) {
         console.error(error);
     }

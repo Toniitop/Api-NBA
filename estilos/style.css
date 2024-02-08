@@ -295,7 +295,7 @@ main {
 
 .footer-col .social-links a:hover {
 	color: #24262b;
-	background-color: #ffffff;
+	background-color: #e91e63;
 }
 
 /*responsive*/
@@ -327,3 +327,73 @@ main {
 	}
 }
 
+/* Estilos para pantallas medianas (entre 768px y 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    header {
+        padding: 8px; /* Ajusta el espaciado del encabezado */
+    }
+
+    .logo img {
+        width: 50%; /* Ajusta el tamaño del logo */
+    }
+
+    .fondo {
+        width: 40px; /* Ajusta el tamaño del fondo de búsqueda */
+    }
+}
+
+/* Estilos para pantallas pequeñas (menos de 768px) */
+@media (max-width: 767px) {
+    header {
+        padding: 5px; /* Ajusta el espaciado del encabezado */
+    }
+
+    .logo img {
+        width: 40%; /* Ajusta el tamaño del logo */
+    }
+
+    .fondo {
+        width: 30px; /* Ajusta el tamaño del fondo de búsqueda */
+    }
+
+    .menu {
+        margin-right: 5px; /* Ajusta el espaciado entre elementos del menú */
+    }
+
+    #contenedorTexto .parrafo-inicial {
+        padding: 60px 30px; /* Ajusta el espaciado del párrafo inicial */
+        font-size: 25px; /* Ajusta el tamaño de fuente del párrafo inicial */
+    }
+
+    main {
+        padding: 10px; /* Ajusta el espaciado del contenido principal */
+    }
+
+    .footer-col {
+        width: 100%; /* Ajusta el ancho de las columnas del pie de página */
+    }
+}
+
+/* Estilos para pantallas extra pequeñas (menos de 575px) */
+@media (max-width: 575px) {
+    .logo img {
+        width: 60%; /* Ajusta el tamaño del logo */
+    }
+
+    .fondo {
+        width: 25px; /* Ajusta el tamaño del fondo de búsqueda */
+    }
+
+    .menu {
+        margin-right: 3px; /* Ajusta el espaciado entre elementos del menú */
+    }
+
+    #contenedorTexto .parrafo-inicial {
+        padding: 40px 20px; /* Ajusta el espaciado del párrafo inicial */
+        font-size: 20px; /* Ajusta el tamaño de fuente del párrafo inicial */
+    }
+
+    main {
+        padding: 5px; /* Ajusta el espaciado del contenido principal */
+    }
+}
