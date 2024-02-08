@@ -184,6 +184,27 @@ i {
 	-3px 6px 1px #787777;
 }
 
+/*Enabezado despues de la busqueda*/
+
+#encabezadoContenedor {
+    position: fixed;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10%;
+    text-align: center;
+	border-radius: 5px;
+    z-index: 1000; /* Asegura que el encabezado esté sobre otros elementos */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Añade una sombra negra */
+}
+
+#encabezado {
+    margin: 0; /* Elimina el margen por defecto del párrafo */
+}
+
+
 /* Dando formato a lista de la API ---------------------------------------------*/
 
 ul {

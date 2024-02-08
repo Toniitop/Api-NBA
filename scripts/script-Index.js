@@ -2,8 +2,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let textoBusqueda = "";
 
-    const busqueda = async () => {
+    const mostrarEncabezado = () => {
+        const encabezadoContenedor = document.getElementById('encabezadoContenedor');
+        encabezadoContenedor.style.display = 'block';
+    };
 
+    const ocultarEncabezado = () => {
+        const encabezadoContenedor = document.getElementById('encabezadoContenedor');
+        encabezadoContenedor.style.display = 'none';
+    };
+
+    const busqueda = async () => {
         // Obtén el valor del campo de búsqueda y asigna a la variable
         textoBusqueda = document.getElementById('inputBuscar').value;
         console.log('Texto de búsqueda:', textoBusqueda);
@@ -26,12 +35,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 const datos = await respuesta.json();
                 console.log(datos);
 
+                mostrarEncabezado();
+
                 // Accede al contenedor donde deseas mostrar los resultados
                 const resultadosContenedor = document.getElementById('contenedorTexto');
-
                 // Limpia el contenido actual antes de agregar nuevos resultados
                 resultadosContenedor.innerHTML = '';
 
+                // Actualizamos el encabezado
+                const encabezado = document.getElementById('encabezado');
+                encabezado.textContent = 'Jugador/es NBA';
+                
                 // Recorre los datos y crea elementos HTML para mostrarlos
                 datos.response.forEach((jugador, index) => {
                     const parrafoJugador = document.createElement('p');
@@ -56,11 +70,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             } else {
                 console.error('Error en la petición HTTP a la API');
+                ocultarEncabezado();
             }
         } catch (error) {
             console.error(error);
+            ocultarEncabezado();
         }
-
     };
 
     // Agregar un evento de clic al botón con id 'botonBuscar'
@@ -69,4 +84,12 @@ document.addEventListener('DOMContentLoaded', function () {
         busqueda();
     });
 
+    // Agregar un evento de presionar la tecla "Enter" en el campo de búsqueda
+    document.getElementById('inputBuscar').addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            console.log('Presionada la tecla Enter');
+            busqueda();
+        }
+    });
+    ocultarEncabezado();
 });
